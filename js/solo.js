@@ -142,13 +142,42 @@ function handleChoice(selectedIdx) {
     else b.classList.add('dim');
   });
 
-  // 해설
-  if (q.ex) {
-    const ex = document.getElementById('explanation');
-    ex.className = 'explanation';
-    ex.innerHTML = `<span class="label">${correct ? '정답!' : '아쉬워요'}</span>${escapeHtml(q.ex)}`;
-    ex.style.display = 'block';
+  // 해설 박스 (정답 해설 + 오답 이유)
+  const ex = document.getElementById('explanation');
+  ex.className = 'explanation';
+  ex.style.display = 'block';
+
+  const wrongs = q.wrongs || {};
+  const correctLetter = String.fromCharCode(65 + q.answer);
+  const selectedLetter = String.fromCharCode(65 + selectedIdx);
+
+  let html = '';
+
+  // 1) 정답 라인
+  const headLabel = correct
+    ? '정답!'
+    : `아쉬워요 — 정답은 ${correctLetter}`;
+  html += `<div class="ex-row"><span class="label">${headLabel}</span>${q.ex ? escapeHtml(q.ex) : ''}</div>`;
+
+  // 2) 내가 고른 오답 이유 (있으면)
+  if (!correct && wrongs[selectedIdx]) {
+    html += `<div class="ex-row ex-wrong"><span class="label">내 답 ${selectedLetter}: 왜 틀렸나?</span>${escapeHtml(wrongs[selectedIdx])}</div>`;
   }
+
+  // 3) 다른 오답 이유들 (토글)
+  const otherKeys = Object.keys(wrongs)
+    .map((k) => parseInt(k, 10))
+    .filter((i) => i !== selectedIdx && i !== q.answer);
+
+  if (otherKeys.length > 0) {
+    const items = otherKeys
+      .sort((a, b) => a - b)
+      .map((i) => `<div class="ex-row"><span class="label">${String.fromCharCode(65 + i)}:</span>${escapeHtml(wrongs[i])}</div>`)
+      .join('');
+    html += `<details class="ex-toggle"><summary>다른 보기 설명 보기</summary><div class="ex-toggle-body">${items}</div></details>`;
+  }
+
+  ex.innerHTML = html;
 
   // 다음 버튼 노출
   const nextWrap = document.getElementById('nextWrap');

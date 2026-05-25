@@ -276,6 +276,46 @@ body {
   color: var(--text-strong);
   margin-right: var(--space-2);
 }
+.ex-row + .ex-row { margin-top: var(--space-3); padding-top: var(--space-3); border-top: 1px dashed var(--line); }
+.ex-row.ex-wrong { color: var(--danger); }
+.ex-row.ex-wrong .label { color: var(--danger); }
+
+.ex-toggle {
+  margin-top: var(--space-3);
+  padding-top: var(--space-3);
+  border-top: 1px dashed var(--line);
+}
+.ex-toggle > summary {
+  cursor: pointer;
+  color: var(--text-soft);
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-medium);
+  list-style: none;
+  user-select: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.ex-toggle > summary::-webkit-details-marker { display: none; }
+.ex-toggle > summary::before {
+  content: "▸";
+  display: inline-block;
+  transition: transform var(--t-fast) var(--ease);
+  font-size: 12px;
+  color: var(--text-muted);
+}
+.ex-toggle[open] > summary::before { transform: rotate(90deg); }
+.ex-toggle > summary:hover { color: var(--text-strong); }
+.ex-toggle-body {
+  margin-top: var(--space-3);
+  padding-left: var(--space-3);
+  border-left: 2px solid var(--line);
+}
+.ex-toggle-body .ex-row + .ex-row {
+  border-top: none;
+  padding-top: 0;
+  margin-top: var(--space-2);
+}
 
 /* === Result === */
 .result-hero {
