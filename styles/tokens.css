@@ -1,0 +1,112 @@
+/* 파스텔 톤 디자인 토큰 */
+:root {
+  /* 배경 */
+  --bg-gradient-from: #FFF1F4;
+  --bg-gradient-to:   #EAF4FF;
+  --surface:          #FFFFFF;
+  --surface-soft:     #FAFAFE;
+
+  /* 텍스트 */
+  --text-strong: #2D2A3A;
+  --text:        #4A4658;
+  --text-soft:   #7C7A8A;
+  --text-muted:  #ABA8B8;
+
+  /* 보조선 */
+  --line:        #ECE9F2;
+  --line-soft:   #F4F2F8;
+
+  /* 강조색 (브랜드) */
+  --primary:        #FF9AA2;
+  --primary-strong: #F47780;
+  --primary-soft:   #FFE3E5;
+
+  /* 상태 */
+  --success:        #6FCF97;
+  --success-soft:   #DFF3E7;
+  --danger:         #EB5757;
+  --danger-soft:    #FBE2E2;
+  --warn:           #F2C94C;
+  --warn-soft:      #FCF3D7;
+
+  /* 카테고리 색 (배경/포인트 페어) */
+  --cat-spelling-bg:    #C7CEEA;
+  --cat-spelling-fg:    #4A5184;
+  --cat-kor-history-bg: #FFDAC1;
+  --cat-kor-history-fg: #8A5A36;
+  --cat-wld-history-bg: #E2F0CB;
+  --cat-wld-history-fg: #5F7A3D;
+  --cat-science-bg:     #B5EAD7;
+  --cat-science-fg:     #3D7A5F;
+  --cat-sports-bg:      #FF9AA2;
+  --cat-sports-fg:      #8A3A40;
+  --cat-ent-bg:         #FFB7B2;
+  --cat-ent-fg:         #8A4A45;
+  --cat-geo-bg:         #BDDDFC;
+  --cat-geo-fg:         #3A5A8A;
+  --cat-general-bg:     #F1C6E7;
+  --cat-general-fg:     #7A3A6A;
+  --cat-mix-bg:         linear-gradient(135deg, #FFB7B2, #C7CEEA, #B5EAD7);
+  --cat-mix-fg:         #2D2A3A;
+
+  /* 모양 */
+  --radius-sm: 8px;
+  --radius:    14px;
+  --radius-lg: 22px;
+  --radius-pill: 999px;
+
+  /* 그림자 */
+  --shadow-sm: 0 1px 2px rgba(45, 42, 58, 0.06), 0 1px 3px rgba(45, 42, 58, 0.04);
+  --shadow:    0 4px 14px rgba(45, 42, 58, 0.08), 0 2px 6px rgba(45, 42, 58, 0.04);
+  --shadow-lg: 0 18px 40px rgba(45, 42, 58, 0.12), 0 6px 16px rgba(45, 42, 58, 0.06);
+
+  /* 간격 */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+  --space-8: 64px;
+
+  /* 타이포 */
+  --font-sans: 'Pretendard', -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo',
+               'Malgun Gothic', '맑은 고딕', system-ui, sans-serif;
+  --font-display: var(--font-sans);
+
+  --fs-xs:  12px;
+  --fs-sm:  14px;
+  --fs-md:  16px;
+  --fs-lg:  18px;
+  --fs-xl:  22px;
+  --fs-2xl: 28px;
+  --fs-3xl: 36px;
+  --fs-4xl: 48px;
+
+  --lh-tight:  1.2;
+  --lh-normal: 1.5;
+  --lh-relaxed: 1.7;
+
+  --fw-regular: 400;
+  --fw-medium:  500;
+  --fw-semibold: 600;
+  --fw-bold:    700;
+
+  /* 모션 */
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --t-fast: 120ms;
+  --t-base: 220ms;
+  --t-slow: 380ms;
+
+  /* 컨테이너 */
+  --container-max: 720px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --t-fast: 0ms;
+    --t-base: 0ms;
+    --t-slow: 0ms;
+  }
+}
